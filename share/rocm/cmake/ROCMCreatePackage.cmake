@@ -83,6 +83,9 @@ macro(rocm_create_package)
     set(CPACK_DEBIAN_PACKAGE_RELEASE ${DEBIAN_VERSION})
     set(CPACK_RPM_PACKAGE_RELEASE ${RPM_RELEASE})
 
+    #debian requires underscore between file name and version fields
+    set(CPACK_PROJECT_CONFIG_FILE "${CMAKE_CURRENT_SOURCE_DIR}/share/rocm/cmake/cpack_project_config.cmake")
+
     set(CPACK_GENERATOR "TGZ;ZIP")
     if(EXISTS ${MAKE_NSIS_EXE})
         list(APPEND CPACK_GENERATOR "NSIS")
